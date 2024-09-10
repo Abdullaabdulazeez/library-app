@@ -12,7 +12,7 @@ import {
   Textarea,
   useDisclosure,
 } from '@chakra-ui/react';
-import axios from 'axios'; // Import axios to handle HTTP requests
+import axios from 'axios';
 
 export const BookForm = ({ onAddBook }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -31,11 +31,10 @@ export const BookForm = ({ onAddBook }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Making a POST request to add the book
-      const response = await axios.post('http://localhost:5000/books', book);
-      onAddBook(response.data); // Updating the state with the new book data
-      setBook({ title: '', author: '', description: '', imageUrl: '' }); // Reset the form fields
-      onClose(); // Close the modal after successful submission
+      const response = await axios.post('https://library-app-1-j5ql.onrender.com/books', book);
+      onAddBook(response.data); 
+      setBook({ title: '', author: '', description: '', imageUrl: '' });
+      onClose(); 
     } catch (error) {
       console.error('Error adding book:', error);
     }

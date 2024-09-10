@@ -7,7 +7,7 @@ import axios from 'axios';
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:5000/books/${id}`);
+            await axios.delete(`https://library-app-1-j5ql.onrender.com/books/${id}`);
             onDeleteBook(id);
         } catch (error) {
             console.log(error)
